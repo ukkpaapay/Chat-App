@@ -1,0 +1,133 @@
+.body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
+
+.rhine-lab-logo {
+    background-image: url('./img/rhine-lab-logo.png');
+    width: 200px;
+    height: 100px;
+    background-size: cover;
+    margin: auto;
+}
+
+.rhine-lab-title {
+    align-self: flex-start;
+    margin-top: 75px;
+    margin-left: 50px;
+    z-index: 999;
+    animation-delay: 2s;
+}
+input {
+    border: none;
+    background-color: transparent;
+    box-sizing: border-box;
+
+}
+
+input:focus {
+    outline: none;
+}
+
+input[type=password]::-ms-reveal,
+input[type=password]::-ms-clear {
+    display: none;
+}
+
+.rhine-lab-text-1 {
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 0;
+    margin-bottom: 25px;
+}
+
+.rhine-lab-text-2 {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 0;
+    margin-bottom: 15px;
+}
+
+.rhine-lab-text-3 {
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 0;
+}
+
+.rhine-lab-text-4 {
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 0;
+}
+
+.rhine-lab-text-5 {
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 0;
+    margin-bottom: 25px;
+}
+
+.circle1 {
+    height: 700px;
+    width: 700px;
+    border: solid 3px;
+    border-color: #000000;
+    border-radius: 50%;
+    display: flex;
+    position: relative;
+}
+
+.circle2 {
+    height: 650px;
+    width: 650px;
+    border: solid 5px;
+    border-color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: space-around;
+    animation: 5s ease-in-out 0s infinite rotating1;
+}
+
+.circle3 {
+    height: 200px;
+    width: 200px;
+    border: solid 3px;
+    border-color: #000000;
+    border-radius: 50%;
+    display: flex;
+    animation: 7s ease-in-out 0s infinite rotating2;
+}
+
+.circle4 {
+    height: 25px;
+    width: 25px;
+    background-color: #ffca41;
+    border-radius: 50%;
+    display: flex;
+}
+
+.circle5 {
+    height: 30px;
+    width: 30px;
+    background-color: #000000;
+    border-radius: 50%;
+    display: flex;
+}
+
+.circle6 {
+    height: 100px;
+    width: 100px;
+    border: solid 3px;
+    border-color: #000000;
+    border-radius: 50%;
+    margin-right: -200px;
+    margin-left: -200px;
+}
+
+.load {
+    animation: 1s ease-out 0s zoomout;
+}

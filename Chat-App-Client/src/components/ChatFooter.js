@@ -28,6 +28,7 @@ const ChatFooter = ({socket}) => {
             className='message' 
             value={message} 
             onChange={e => setMessage(e.target.value)}
+            autocomplete="off"
             // onKeyDown={handleTyping}
             />
             <button className="sendBtn">SEND</button>
