@@ -6,14 +6,21 @@ const Login = ({ socket }) => {
     const navigate = useNavigate();
     const [userName, setUserName] = useState('');
     const [roomNumber, setRoomNumber] = useState('');
+    const [users, setUsers] = useState([]);
+
+    useEffect(() => {
+      socket.on('newUserResponse', (data) => setUsers(data));
+    }, [socket, users]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
         localStorage.setItem('userName', userName);
         localStorage.setItem('roomNumber', roomNumber);
         //sends the username and socket ID to the Node.js server
-        socket.emit('newUser', { userName, roomNumber, socketID: socket.id });
-        navigate('/chat');
+        if(users.userName.indexOf(userName) == -1){
+            socket.emit('newUser', { userName, roomNumber, socketID: socket.id });
+            navigate('/chat');
+          }
     };
 
     return (
