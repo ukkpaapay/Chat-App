@@ -8,11 +8,11 @@ const ChatBody = ({ messages, typingStatus, lastMessageRef, socket }) => {
 
   const handleSendMessage = (e) => {
     e.preventDefault()
-    if (message.trim() && localStorage.getItem("userName")) {
+    if (message.trim() && localStorage.getItem("username")) {
       socket.emit("message",
         {
           text: message,
-          name: localStorage.getItem("userName"),
+          name: localStorage.getItem("username"),
           id: `${socket.id}${Math.random()}`,
           socketID: socket.id,
           room: localStorage.getItem("roomNumber"),
@@ -23,7 +23,7 @@ const ChatBody = ({ messages, typingStatus, lastMessageRef, socket }) => {
   }
 
   const handleLeaveChat = () => {
-    localStorage.removeItem("userName");
+    localStorage.removeItem("username");
     navigate("/");
     window.location.reload();
   };
@@ -41,7 +41,7 @@ const ChatBody = ({ messages, typingStatus, lastMessageRef, socket }) => {
 
       <div className="w-full h-96 p-5 overflow-y-scroll overflow-x-hidden bg-slate-300">
         {messages.map((message) =>
-          message.name === localStorage.getItem("userName") ? (
+          message.name === localStorage.getItem("username") ? (
             <div className="text-sm" key={message.id}>
               <div className="max-w-xs p-2.5 rounded-xl ml-auto text-base line-clamp-* bg-lime-400 mb-2.5">
                 <p>{message.text}</p>

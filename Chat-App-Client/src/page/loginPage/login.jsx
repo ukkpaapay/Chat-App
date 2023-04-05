@@ -1,26 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import './index.css'
 import { useNavigate } from 'react-router-dom';
 
 const Login = ({ socket }) => {
     const navigate = useNavigate();
-    const [userName, setUserName] = useState('');
+    const [username, setUsername] = useState('');
     const [roomNumber, setRoomNumber] = useState('');
-    // const [users, setUsers] = useState([]);
-
-    // useEffect(() => {
-    //   socket.on('newUserResponse', (data) => setUsers(data));
-    // }, [socket, users]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        localStorage.setItem('userName', userName);
+        localStorage.setItem('username', username);
         localStorage.setItem('roomNumber', roomNumber);
         //sends the username and socket ID to the Node.js server
-        // if(users.userName.indexOf(userName) == -1){
-        socket.emit('newUser', { userName, roomNumber, socketID: socket.id });
+        socket.emit('newUser', { username, roomNumber, socketID: socket.id });
         navigate('/chat');
-        //   }
     };
 
     return (
@@ -39,8 +32,8 @@ const Login = ({ socket }) => {
                 </div>
                 <div className='animate-[fadeIn_4.5s_ease-out] my-auto mx-6'>
                     <form onSubmit={handleSubmit}>
-                        <div>USERNAME : <input name="username" className='rhine-lab-text-2' type={'text'} autocomplete="off" value={userName} onChange={(e) => setUserName(e.target.value)} /></div>
-                        <div>ROOM : <input name="password" className='rhine-lab-text-2' type={'password'} autocomplete="off" value={roomNumber} onChange={(e) => setRoomNumber(e.target.value)} /></div>
+                        <div>USERNAME : <input name="username" className='rhine-lab-text-2' type={'text'} autoComplete="off" value={username} onChange={(e) => setUsername(e.target.value)} /></div>
+                        <div>ROOM : <input name="password" className='rhine-lab-text-2' type={'password'} autoComplete="off" value={roomNumber} onChange={(e) => setRoomNumber(e.target.value)} /></div>
                         <button type="submit" />
                     </form>
                 </div>

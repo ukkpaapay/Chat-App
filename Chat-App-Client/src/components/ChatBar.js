@@ -14,7 +14,7 @@ const ChatBar = ({ socket }) => {
         <h4 className="mt-2.5 mb-5">ACTIVE USERS</h4>
         <div className=" text-base">
           {users.filter((user) => user.roomNumber === localStorage.getItem("roomNumber")).map((user) => (
-            <p className='mb-2.5' key={user.socketID}>{user.userName}</p>
+            <p className='mb-2.5' key={user.socketID}>{user.username}</p>
           ))}
         </div>
       </div>
