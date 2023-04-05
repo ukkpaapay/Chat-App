@@ -6,21 +6,21 @@ const Login = ({ socket }) => {
     const navigate = useNavigate();
     const [userName, setUserName] = useState('');
     const [roomNumber, setRoomNumber] = useState('');
-    const [users, setUsers] = useState([]);
+    // const [users, setUsers] = useState([]);
 
-    useEffect(() => {
-      socket.on('newUserResponse', (data) => setUsers(data));
-    }, [socket, users]);
+    // useEffect(() => {
+    //   socket.on('newUserResponse', (data) => setUsers(data));
+    // }, [socket, users]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
         localStorage.setItem('userName', userName);
         localStorage.setItem('roomNumber', roomNumber);
         //sends the username and socket ID to the Node.js server
-        if(users.userName.indexOf(userName) == -1){
-            socket.emit('newUser', { userName, roomNumber, socketID: socket.id });
-            navigate('/chat');
-          }
+        // if(users.userName.indexOf(userName) == -1){
+        socket.emit('newUser', { userName, roomNumber, socketID: socket.id });
+        navigate('/chat');
+        //   }
     };
 
     return (
@@ -41,7 +41,7 @@ const Login = ({ socket }) => {
                     <form onSubmit={handleSubmit}>
                         <div>USERNAME : <input name="username" className='rhine-lab-text-2' type={'text'} autocomplete="off" value={userName} onChange={(e) => setUserName(e.target.value)} /></div>
                         <div>ROOM : <input name="password" className='rhine-lab-text-2' type={'password'} autocomplete="off" value={roomNumber} onChange={(e) => setRoomNumber(e.target.value)} /></div>
-                        <button type="submit"/>
+                        <button type="submit" />
                     </form>
                 </div>
             </div>
