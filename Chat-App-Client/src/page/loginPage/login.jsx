@@ -34,7 +34,7 @@ const Login = ({ socket }) => {
                     <form onSubmit={handleSubmit}>
                         <div>USERNAME : <input name="username" className='rhine-lab-text-2' type={'text'} autoComplete="off" value={username} onChange={(e) => setUsername(e.target.value)} /></div>
                         <div>ROOM : <input name="password" className='rhine-lab-text-2' type={'password'} autoComplete="off" value={roomNumber} onChange={(e) => setRoomNumber(e.target.value)} /></div>
-                        <button type="submit" />
+                        <button type="submit"/>
                     </form>
                 </div>
             </div>
